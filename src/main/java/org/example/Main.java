@@ -4,6 +4,7 @@ import org.example.dto.User;
 import org.example.helpers.ResourceLoader;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 public class Main {
@@ -20,6 +21,15 @@ public class Main {
         //Переконайтеся, що в результаті виконання програми ДІЙСНО надрукується
         //список юзерів, які відфільтровані і відсортовані за вказаними критеріями
         filteredAndSortedUsers.forEach(System.out::println);
+
+        //
+        URL resourceUrl = UserLoader.class.getClassLoader().getResource("users.json");
+        if (resourceUrl == null) {
+            System.out.println("Resource URL is null.");
+        } else {
+            System.out.println("Resource URL: " + resourceUrl.getPath());
+        }
+
 
     }
 }
